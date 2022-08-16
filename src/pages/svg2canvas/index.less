@@ -1,0 +1,98 @@
+.paint-inspection-car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.paint-inspection-mask-canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+#canvas {
+  height: 300PX;
+}
+
+#hitCanvas {
+  position: fixed;
+  top: -999px;
+  left: -999px;
+  height: 300PX;
+}
+
+.damage-popup {
+
+  &__mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    z-index: 9999999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.7);
+  }
+
+  &__content {
+    background-color: #fff;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 56px;
+  }
+
+  &__title {
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+  }
+
+  &__close {
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;  /* 方便进行定位 */
+      background-color: #888;
+      height: 30px;
+      width: 2px;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -1px;
+    }
+    &::before { transform: rotate(45deg); /* 进行旋转 */ }
+    &::after { transform: rotate(-45deg); }
+  }
+
+  &__item {
+    height: 97px;
+    line-height: 97px;
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+    border-top: 1PX solid #ebebeb;
+
+    &-selected {
+      color: #1677fe;
+    }
+  }
+}
